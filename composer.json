@@ -18,12 +18,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Vendor\\Package\\": "src/"
+            "CultuurNet\\SilexServiceProviderOAuth\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Vendor\\Package\\": "tests/"
+            "CultuurNet\\SilexServiceProviderOAuth\\": "tests/"
         }
     },
     "minimum-stability": "dev",
