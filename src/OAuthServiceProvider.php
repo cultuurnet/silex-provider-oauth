@@ -79,11 +79,17 @@ class OAuthServiceProvider implements ServiceProviderInterface
             );
         });
 
-        $app['oauth.request_listener'] = $app->share(function() {
+        $app['oauth.request_listener'] = $app->share(function () {
             return new \CultuurNet\SymfonySecurityOAuth\EventListener\OAuthRequestListener();
         });
 
-        $app['dispatcher']->addListener('kernel.request', array($app['oauth.request_listener'], 'onEarlyKernelRequest'), 255);
+        $app['dispatcher']->addListener(
+            'kernel.request',
+            array(
+                $app['oauth.request_listener'],
+                'onEarlyKernelRequest'),
+            255
+        );
 
     }
 
