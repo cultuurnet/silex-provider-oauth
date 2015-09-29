@@ -9,6 +9,7 @@
 namespace CultuurNet\SilexServiceProviderOAuth;
 
 use CultuurNet\Auth\ConsumerCredentials;
+use CultuurNet\SymfonySecurityOAuth\EventListener\OAuthRequestListener;
 use CultuurNet\SymfonySecurityOAuth\Security\OAuthAuthenticationProvider;
 use CultuurNet\SymfonySecurityOAuth\Security\OAuthListener;
 use CultuurNet\SymfonySecurityOAuth\Service\OAuthServerService;
@@ -80,7 +81,7 @@ class OAuthServiceProvider implements ServiceProviderInterface
         });
 
         $app['oauth.request_listener'] = $app->share(function () {
-            return new \CultuurNet\SymfonySecurityOAuth\EventListener\OAuthRequestListener();
+            return new OAuthRequestListener();
         });
 
         $app['dispatcher']->addListener(
