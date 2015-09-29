@@ -1,10 +1,15 @@
 {
-    "name": "vendor/package",
-    "description": "Brief description of this PHP library",
+    "name": "cultuurnet/silex-service-provider-oauth",
+    "description": "A Silex service provider for our OAuth component.",
     "type": "library",
     "license": "Apache-2.0",
     "authors": [],
-    "require": {},
+    "require": {
+        "cultuurnet/symfony-security-oauth": "dev-feature/III-413",
+        "cultuurnet/symfony-security-oauth-redis": "~0.1",
+        "deralex/yaml-config-service-provider": "~1.0.1",
+        "cultuurnet/symfony-security-oauth-uitid": "~0.1"
+    },
     "require-dev": {
         "phpunit/phpunit": "~4.7",
         "squizlabs/php_codesniffer": "~2.3",
