@@ -31,7 +31,7 @@ Define a service named _oauth.model.provider.nonce_provider_ that implements
 _CultuurNet\SymfonySecurityOAuth\Model\Provider\NonceProviderInterface_.
 The cultuurnet/symfony-security-oauth-redis package provides an implementation
 that used Redis for storage. It uses the predis PHP client library for Redis.
-However, you are free to use your own implementation for other another suitable
+However, you are free to use your own implementation for a suitable
 storage mechanism.
 
 ```php
