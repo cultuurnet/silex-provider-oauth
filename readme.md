@@ -68,7 +68,7 @@ $app->register(
 For improved performance, you can cache the tokens retrieved from the UiTID 
 Credentials API. The best way to do this is by wrapping the original
 oauth.model.provider.token_provider service in a decorator that implements the
-same interface and takes care of caching. Again, your are free to use your own
+same interface and takes care of caching. Again, you are free to use your own
 implementation for a suitable storage mechanism. The 
 cultuurnet/symfony-security-oauth-redis package provides an implementation
 that used Redis.
