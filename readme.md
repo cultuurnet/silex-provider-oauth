@@ -57,8 +57,10 @@ $app->register(
   new \Silex\Provider\SecurityServiceProvider(),
   array(
       'security.firewalls' => array(
-          'default' => array(
+          'myapi' => array(
+              'pattern' => '^/my/api/.*',
               'oauth' => true,
+              'stateless' => true,
            ),
       ),
   )
