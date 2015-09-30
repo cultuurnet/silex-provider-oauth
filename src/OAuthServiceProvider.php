@@ -25,9 +25,10 @@ class OAuthServiceProvider implements ServiceProviderInterface
     public function register(Application $app)
     {
         $app['oauth.fetcher'] = $app->share(function () use ($app) {
-            $baseUrl = $app['fetcher']['config']['base_url'];
-            $consumerkey = $app['fetcher']['config']['consumer']['key'];
-            $consumersecret = $app['fetcher']['config']['consumer']['secret'];
+            $baseUrl = $app['oauth.fetcher.base_url'];
+            $consumer = $app['oauth.fetcher.consumer'];
+            $consumerkey = $consumer['key'];
+            $consumersecret = $consumer['secret'];
 
             $consumerCredentials = new ConsumerCredentials($consumerkey, $consumersecret);
 
