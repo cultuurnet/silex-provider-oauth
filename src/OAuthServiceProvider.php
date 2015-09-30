@@ -56,9 +56,9 @@ class OAuthServiceProvider implements ServiceProviderInterface
 
         $app['security.authentication_listener.factory.oauth'] = $app->protect(function ($name, $options) use ($app) {
             // define the authentication provider object
-            $app['security.authentication_provider.'.$name.'.oauth'] = $app->share(function () use ($app) {
+            $app['security.authentication_provider.'.$name.'.oauth'] = $app->share(function () use ($app, $name) {
                 return new OAuthAuthenticationProvider(
-                    $app['security.user_provider.default'],
+                    $app['security.user_provider.' . $name],
                     $app['oauth.service.oauth_server_service'] //__DIR__.'/security_cache',
                 );
             });
