@@ -9,6 +9,7 @@
 namespace CultuurNet\SilexServiceProviderOAuth;
 
 use CultuurNet\Auth\ConsumerCredentials;
+use CultuurNet\Clock\SystemClock;
 use CultuurNet\SymfonySecurityOAuth\EventListener\OAuthRequestListener;
 use CultuurNet\SymfonySecurityOAuth\Security\OAuthAuthenticationProvider;
 use CultuurNet\SymfonySecurityOAuth\Security\OAuthListener;
@@ -43,11 +44,16 @@ class OAuthServiceProvider implements ServiceProviderInterface
             return new TokenProvider($app['oauth.fetcher']);
         });
 
+        $app['clock'] = $app->share(function ($app) {
+            return new SystemClock(new \DateTimeZone('Europe/Brussels'));
+        });
+
         $app['oauth.service.oauth_server_service'] = $app->share(function () use ($app) {
             $consumerProvider = $app['oauth.model.provider.consumer_provider'];
             $tokenProvider = $app['oauth.model.provider.token_provider'];
             $nonceProvider = $app['oauth.model.provider.nonce_provider'];
-            $serverService =  new OAuthServerService($consumerProvider, $tokenProvider, $nonceProvider);
+            $clock = $app['clock'];
+            $serverService =  new OAuthServerService($consumerProvider, $tokenProvider, $nonceProvider, $clock);
             $hmacsha1Service = new OAuthHmacSha1Signature();
             $serverService->addSignatureService($hmacsha1Service);
 
