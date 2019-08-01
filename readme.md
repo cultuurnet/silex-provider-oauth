@@ -1,3 +1,7 @@
+```
+Archived because it is no longer used by any publiq applications and has not been updated significantly since 2015.
+```
+
 # Silex Service Provider OAuth
 
 [![Build Status](https://travis-ci.org/cultuurnet/silex-service-provider-oauth.svg?branch=master)](https://travis-ci.org/cultuurnet/silex-service-provider-oauth)
